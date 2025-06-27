@@ -1,0 +1,14 @@
+# Dependências 
+node_modules/
+
+# Variáveis de ambiente sensíveis
+.env
+
+# Logs
+*.log
+
+# Dados locais do MongoDB 
+data/
+
+# Dumps de banco
+dump/
