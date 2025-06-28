@@ -6,7 +6,7 @@ export const loginUser = createAsyncThunk(
   'user/loginUser',
   async ({ cpf }, thunkAPI) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/fila/status`, { cpf })
+      const response = await axios.post(`${process.env.VITE_API_URL}/fila/status`, { cpf })
       const data = Array.isArray(response.data) ? response.data[0] : response.data
 
       if (!data || !data.cpf) {
@@ -25,7 +25,7 @@ export const registerUser = createAsyncThunk(
   'user/registerUser',
   async ({ cpf, name }, thunkAPI) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/fila`, { cpf, name })
+      const response = await axios.post(`${process.env.VITE_API_URL}/fila`, { cpf, name })
       return response.data
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data?.erro || 'Erro no cadastro')
