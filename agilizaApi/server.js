@@ -8,7 +8,14 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+
+app.use(cors({
+  origin: "https://agiliza-app.onrender.com", // ajuste conforme domínio frontend em produção
+  methods: ["GET", "POST", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
+
+app.options("*", cors());
 
 app.use("/api", filaRoutes);
 
