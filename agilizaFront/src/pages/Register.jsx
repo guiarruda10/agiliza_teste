@@ -54,7 +54,6 @@ export default function Register() {
 
   return (
     <div className="relative flex items-center justify-center min-h-screen bg-gray-300 overflow-hidden">
-      {/*AGILIZA no fundo da tela */}
       <h1 className="absolute top-16 text-[100px] font-extrabold text-blue opacity-10 select-none pointer-events-none">
         AGILIZA
       </h1>
@@ -66,8 +65,7 @@ export default function Register() {
             {notification}
           </div>
         )}
-
-        {/*formulário de cadastro */}
+        
         <RegisterForm
           cpf={cpf}
           setCpf={setCpf}

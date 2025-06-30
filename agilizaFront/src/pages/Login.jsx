@@ -48,41 +48,49 @@ export default function Login() {
   }, [error, navigate, cpf])
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-8 rounded shadow-md w-full max-w-md"
-      >
+    <div className="relative flex items-center justify-center min-h-screen bg-gray-300 overflow-hidden">
+      {/* Marca d'água AGILIZA no fundo */}
+      <h1 className="absolute top-16 text-[100px] font-extrabold text-blue opacity-10 select-none pointer-events-none">
+        AGILIZA
+      </h1>
+
+      <div className="z-10 max-w-sm w-full p-12 bg-white rounded-lg shadow-md">
+        {/* Título */}
         <h2 className="text-2xl font-bold mb-6 text-center">Entrar com CPF</h2>
 
-        {/* campo do cpf*/}
-        <input
-          type="text"
-          value={cpf}
-          onChange={(e) => setCpf(e.target.value)}
-          placeholder="Digite seu CPF (somente números)"
-          className="w-full p-3 border border-gray-300 rounded mb-4"
-          maxLength={11}
-        />
+        {/* Formulário de login */}
+        <form onSubmit={handleSubmit}>
+          {/* Campo de CPF */}
+          <input
+            type="text"
+            value={cpf}
+            onChange={(e) => setCpf(e.target.value)}
+            placeholder="Digite seu CPF (somente números)"
+            className="w-full p-3 border border-gray-300 rounded mb-4"
+            maxLength={11}
+          />
 
-        {/* Botão de submit do form*/}
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-        >
-          Acessar Histórico
-        </button>
+          {/* Botão de submit */}
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          >
+            Acessar Histórico
+          </button>
 
-        {/* erro de validação */}
-        {localError && (
-          <p className="text-red-600 mt-4 text-center">{localError}</p>
-        )}
+          {/* Erro de validação */}
+          {localError && (
+            <p className="text-red-600 mt-4 text-center">{localError}</p>
+          )}
 
-        {/* erro que vem da api */}
-        {error && error !== "Usuário não cadastrado" && (
-          <p className="text-red-600 mt-4 text-center">{error}</p>
-        )}
-      </form>
+          {/* Erro retornado pela API */}
+          {error && error !== "Usuário não cadastrado" && (
+            <p className="text-red-600 mt-4 text-center">{error}</p>
+          )}
+        </form>
+      </div>
     </div>
-  )
+  );
+
 }
+
