@@ -52,6 +52,9 @@ const userSlice = createSlice({
     },
     clearRegisterSuccess(state) {
       state.registerSuccess = false
+      state.isLoggedIn = false
+      state.userInfo = null
+      state.error = null
     },
   },
   extraReducers: builder => {
