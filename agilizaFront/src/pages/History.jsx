@@ -51,6 +51,7 @@ export default function History() {
       if (res.status === 200) {
         await fetchStatus(); // atualiza histórico após atendimento
         navigate("/register"); //usuário para registro após atendimento
+        alert("Obrigado por comparecer, sinta-se avontade para marcar uma nova consulta")
       }
     } catch (err) {
       alert(err.response?.data?.erro || "Erro ao marcar como atendido.");
