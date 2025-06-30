@@ -47,7 +47,7 @@ export default function History() {
     setAttendingId(cpf); // Define ID para controle de loading por item
     try {
       // marcar atendimento
-      const res = await axios.patch("https://agiliza-api-oez3.onrender.com/api/attend", { cpf, name });
+      const res = await axios.patch("https://agiliza-api-oez3.onrender.com/api/fila/attend", { cpf, name });
       if (res.status === 200) {
         await fetchStatus(); // atualiza histórico após atendimento
         navigate("/register"); //usuário para registro após atendimento
