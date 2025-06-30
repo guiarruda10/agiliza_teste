@@ -26,7 +26,7 @@ export default function History() {
     setError(null);
     try {
       // obter status da fila
-      const response = await axios.post("/api/fila/status", { cpf: userInfo.cpf });
+      const response = await axios.post("https://agiliza-api-oez3.onrender.com/api/fila/status", { cpf: userInfo.cpf })
       // resposta em array para facilitar map no retorno
       const data = Array.isArray(response.data) ? response.data : [response.data];
       setStatusData(data);
@@ -47,7 +47,7 @@ export default function History() {
     setAttendingId(cpf); // Define ID para controle de loading por item
     try {
       // marcar atendimento
-      const res = await axios.patch("/api/fila/attend", { cpf, name });
+      const res = await axios.patch("https://agiliza-api-oez3.onrender.com/api/attend", { cpf, name });
       if (res.status === 200) {
         await fetchStatus(); // atualiza histórico após atendimento
         navigate("/register"); //usuário para registro após atendimento
