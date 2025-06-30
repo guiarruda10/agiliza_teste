@@ -25,7 +25,7 @@ export const registerUser = createAsyncThunk(
   'user/registerUser',
   async ({ cpf, name }, thunkAPI) => {
     try {
-      const response = await axios.post(`/api/fila/attend`, { cpf, name })
+      const response = await axios.post(`https://agiliza-api-oez3.onrender.com/api/fila/attend`, { cpf, name })
       return response.data
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data?.erro || 'Erro no cadastro')
